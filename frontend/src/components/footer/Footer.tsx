@@ -4,47 +4,47 @@ import { Anchor, Footer as MFooter, Group, Image } from "@mantine/core";
 const socialLinks = [
   {
     href: "https://vimeo.com/whatifcreativestudio",
-    src: "/images/icons/icon-vimeo.svg",
+    src: "/img/icons/icon-vimeo.svg",
     alt: "Vimeo",
   },
   {
     href: "https://instagram.com/whatifcreativestudio",
-    src: "/images/icons/icon-instagram.svg",
+    src: "/img/icons/icon-instagram.svg",
     alt: "Instagram",
   },
   {
     href: "https://www.linkedin.com/company/whatifcreativestudio",
-    src: "/images/icons/icon-linkedin.svg",
+    src: "/img/icons/icon-linkedin.svg",
     alt: "LinkedIn",
   },
   {
     href: "https://discord.gg/Gx5buYS4Kn",
-    src: "/images/icons/icon-discord.svg",
+    src: "/img/icons/icon-discord.svg",
     alt: "Discord",
   },
   {
     href: "https://www.youtube.com/@whatifcreativestudio", // Note: This URL might be incorrect
-    src: "/images/icons/icon-youtube.svg",
+    src: "/img/icons/icon-youtube.svg",
     alt: "YouTube",
   },
   {
     href: "https://x.com/whatifcs",
-    src: "/images/icons/icon-x.svg",
+    src: "/img/icons/icon-x.svg",
     alt: "X",
   },
   {
     href: "https://facebook.com/whatifcreativestudio",
-    src: "/images/icons/icon-facebook.svg",
+    src: "/img/icons/icon-facebook.svg",
     alt: "Facebook",
   },
   {
     href: "https://www.threads.net/@whatifcreativestudio",
-    src: "/images/icons/icon-threads.svg",
+    src: "/img/icons/icon-threads.svg",
     alt: "Threads",
   },
   {
     href: "mailto:info@whatif.ae",
-    src: "/images/icons/icon-email.svg",
+    src: "/img/icons/icon-email.svg",
     alt: "Email",
   },
 ];
