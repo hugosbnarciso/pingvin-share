@@ -1,60 +1,78 @@
-import { Anchor, Footer as MFooter, SimpleGrid, Text } from "@mantine/core";
-import { useMediaQuery } from "@mantine/hooks";
-import useConfig from "../../hooks/config.hook";
-import useTranslate from "../../hooks/useTranslate.hook";
+import { Anchor, Footer as MFooter, Group, Image } from "@mantine/core";
+
+// An array to hold all your social links, making it easy to manage
+const socialLinks = [
+  {
+    href: "https://vimeo.com/whatifcreativestudio",
+    src: "/images/icons/icon-vimeo.svg",
+    alt: "Vimeo",
+  },
+  {
+    href: "https://instagram.com/whatifcreativestudio",
+    src: "/images/icons/icon-instagram.svg",
+    alt: "Instagram",
+  },
+  {
+    href: "https://www.linkedin.com/company/whatifcreativestudio",
+    src: "/images/icons/icon-linkedin.svg",
+    alt: "LinkedIn",
+  },
+  {
+    href: "https://discord.gg/Gx5buYS4Kn",
+    src: "/images/icons/icon-discord.svg",
+    alt: "Discord",
+  },
+  {
+    href: "https://www.youtube.com/@whatifcreativestudio", // Note: This URL might be incorrect
+    src: "/images/icons/icon-youtube.svg",
+    alt: "YouTube",
+  },
+  {
+    href: "https://x.com/whatifcs",
+    src: "/images/icons/icon-x.svg",
+    alt: "X",
+  },
+  {
+    href: "https://facebook.com/whatifcreativestudio",
+    src: "/images/icons/icon-facebook.svg",
+    alt: "Facebook",
+  },
+  {
+    href: "https://www.threads.net/@whatifcreativestudio",
+    src: "/images/icons/icon-threads.svg",
+    alt: "Threads",
+  },
+  {
+    href: "mailto:info@whatif.ae",
+    src: "/images/icons/icon-email.svg",
+    alt: "Email",
+  },
+];
 
 const Footer = () => {
-  const t = useTranslate();
-  const config = useConfig();
-  const hasImprint = !!(
-    config.get("legal.imprintUrl") || config.get("legal.imprintText")
-  );
-  const hasPrivacy = !!(
-    config.get("legal.privacyPolicyUrl") ||
-    config.get("legal.privacyPolicyText")
-  );
-  const imprintUrl =
-    (!config.get("legal.imprintText") && config.get("legal.imprintUrl")) ||
-    "/imprint";
-  const privacyUrl =
-    (!config.get("legal.privacyPolicyText") &&
-      config.get("legal.privacyPolicyUrl")) ||
-    "/privacy";
-
-  const isMobile = useMediaQuery("(max-width: 700px)");
-
   return (
-    <MFooter height="auto" py={6} px="xl" zIndex={100}>
-      <SimpleGrid cols={isMobile ? 2 : 3} m={0}>
-        {!isMobile && <div></div>}
-        <Text size="xs" color="dimmed" align={isMobile ? "left" : "center"}>
-          Powered by{" "}
-          <Anchor
-            size="xs"
-            href="https://github.com/stonith404/pingvin-share"
-            target="_blank"
-          >
-            Pingvin Share
+    // Replicates the styling from your footer CSS using Mantine's sx prop
+    <MFooter
+      height={60}
+      sx={{
+        backgroundColor: "#009dde",
+        display: "flex",
+        justifyContent: "center",
+        alignItems: "center",
+        position: "fixed",
+        bottom: 0,
+        width: '100%'
+      }}
+    >
+      {/* Group is a Mantine component for creating flex containers */}
+      <Group spacing="xl">
+        {socialLinks.map((link) => (
+          // We loop over the array to create each icon link
+          <Anchor key={link.href} href={link.href} target="_blank">
+            <Image src={link.src} alt={link.alt} width={30} />
           </Anchor>
-        </Text>
-        <div>
-          {config.get("legal.enabled") && (
-            <Text size="xs" color="dimmed" align="right">
-              {hasImprint && (
-                <Anchor size="xs" href={imprintUrl}>
-                  {t("imprint.title")}
-                </Anchor>
-              )}
-              {hasImprint && hasPrivacy && " • "}
-              {hasPrivacy && (
-                <Anchor size="xs" href={privacyUrl}>
-                  {t("privacy.title")}
-                </Anchor>
-              )}
-            </Text>
-          )}
-        </div>
-      </SimpleGrid>
+        ))}
+      </Group>
     </MFooter>
   );
 };
